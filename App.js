@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View,} from 'react-native';
+import {createStackNavigator} from 'react-navigation'
 
 
 //must be capital letter for component1
@@ -9,26 +10,19 @@ import Component3 from './apps/components/Component3/Component3.js'
 import Component4 from './apps/components/Component4/Component4.js'
 import Component5 from './apps/components/Component5/Component5.js'
 import Component6 from './apps/components/Component6/Component6.js'
+import LoginScreen from './apps/components/LoginScreen/LoginScreen.js'
 
 
-export default class test1 extends Component{
-	renderScene(route, navigator){
-      switch(route.id){
-      	case 'component5':
-      	  return(<Component5 navigator={navigator} title='component5' />)
-		case 'component5':
-	  	  return(<Component6 navigator={navigator} title='component6' />)
-
-      }
-	}
-
+export default class test1 extends React.Component{
     render(){
     	return(
-          <Navigator
-            initialRoute={{id: 'component5'}}
-            renderScene={this.renderScene}
-            configreScreen={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
-          />
+    		<AppStackNavigator />
     	);
     }
 }
+
+const AppStackNavigator = createStackNavigator({
+	Login: LoginScreen,
+	Component6: Component6,
+	Component5: Component5,
+})

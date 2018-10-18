@@ -6,7 +6,7 @@ export default class Component6 extends Component{
     render(){
     	return(
     		<View>
-    		    
+    		    <Text>From C6</Text>
     		</View>    
     	);
     }
